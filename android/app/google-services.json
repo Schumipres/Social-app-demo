@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "519581326462",
+    "project_id": "minimal-firebase-app",
+    "storage_bucket": "minimal-firebase-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:519581326462:android:0995be506e0ce9a72fcc2f",
+        "android_client_info": {
+          "package_name": "com.example.social"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOuvWDqEYJAhL6nwkiSqLoy-SrJrXft8I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
