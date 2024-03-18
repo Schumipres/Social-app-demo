@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -46,8 +47,12 @@ class _RegisterPageState extends State<RegisterPage> {
         UserCredential? userCredential = await FirebaseAuth.instance
             .createUserWithEmailAndPassword(
                 email: emailController.text, password: passwordController.text);
+        
+        //create user document and add user to firestore
+        createUserDocument(userCredential);
+
         //pop loading circle
-        Navigator.pop(context);
+        if (context.mounted) Navigator.pop(context);
       } on FirebaseAuthException catch (e) {
         //pop loading circle
         Navigator.pop(context);
@@ -56,6 +61,21 @@ class _RegisterPageState extends State<RegisterPage> {
       }
     }
   }
+
+  //create user document
+  Future<void> createUserDocument(UserCredential? userCredential) async {
+    if (userCredential != null && userCredential.user != null) {
+      await FirebaseFirestore.instance
+          .collection("users")
+          .doc(userCredential.user!.uid)
+          .set({
+        "username": userController.text,
+        "email": emailController.text,
+        "uid": userCredential.user!.uid,
+      });
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
