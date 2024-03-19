@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:social/components/my_back_button.dart';
+import 'package:social/components/my_list_style.dart';
 import 'package:social/utils/utils.dart';
 
 class UsersPages extends StatelessWidget {
@@ -8,11 +10,6 @@ class UsersPages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        foregroundColor: Theme.of(context).colorScheme.primary,
-        title: const Text("Users Page"),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-      ),
       body: StreamBuilder(
         stream: FirebaseFirestore.instance.collection("users").snapshots(),
         builder: ((context, snapshot) {
@@ -32,16 +29,32 @@ class UsersPages extends StatelessWidget {
           final users = snapshot.data!.docs;
 
           //return user details
-          return ListView.builder(
-            itemCount: users.length,
-            itemBuilder: (context, index) {
-              //get individual user
-              final user = users[index];
-              return ListTile(
-                title: Text(user['username']),
-                subtitle: Text(user['email']),
-              );
-            },
+          return Column(
+            children: [
+              const Padding(
+                padding: EdgeInsets.only(top: 50, left: 25),
+                child: Row(
+                  children: [
+                    MyBackButton(),
+                  ],
+                ),
+              ),
+              Expanded(
+                child: ListView.builder(
+                  itemCount: users.length,
+                  padding: const EdgeInsets.all(0),
+                  itemBuilder: (context, index) {
+                    //get individual user
+                    final user = users[index];
+
+                    String username = user['username'];
+                    String email = user['email'];
+                    return MyListStyle(
+                        title: username, subTitle: email);
+                  },
+                ),
+              ),
+            ],
           );
         }),
       ),
