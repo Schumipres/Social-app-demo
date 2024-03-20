@@ -22,17 +22,24 @@ class MyDrawer extends StatelessWidget {
                 child: Icon(
                   Icons.favorite,
                   color: Theme.of(context).colorScheme.inversePrimary,
+                  size: 40,
                 ),
               ),
 
+              const SizedBox(
+                height: 25,
+              ),
               //home tile
               Padding(
                 padding: const EdgeInsets.only(left: 25),
                 child: ListTile(
-                  title: Text(
-                    "H O M E",
-                    style: TextStyle(
-                        color: Theme.of(context).colorScheme.inversePrimary),
+                  title: Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Text(
+                      "H O M E",
+                      style: TextStyle(
+                          color: Theme.of(context).colorScheme.inversePrimary),
+                    ),
                   ),
                   leading: Icon(
                     Icons.home,
@@ -52,10 +59,13 @@ class MyDrawer extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 25),
                 child: ListTile(
-                  title: Text(
-                    "P R O F I L E",
-                    style: TextStyle(
-                        color: Theme.of(context).colorScheme.inversePrimary),
+                  title: Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Text(
+                      "P R O F I L E",
+                      style: TextStyle(
+                          color: Theme.of(context).colorScheme.inversePrimary),
+                    ),
                   ),
                   leading: Icon(
                     Icons.person,
@@ -76,10 +86,13 @@ class MyDrawer extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 25),
                 child: ListTile(
-                  title: Text(
-                    "U S E R S",
-                    style: TextStyle(
-                        color: Theme.of(context).colorScheme.inversePrimary),
+                  title: Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Text(
+                      "U S E R S",
+                      style: TextStyle(
+                          color: Theme.of(context).colorScheme.inversePrimary),
+                    ),
                   ),
                   leading: Icon(
                     Icons.group,
@@ -102,10 +115,13 @@ class MyDrawer extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 25, bottom: 25),
             child: ListTile(
-              title: Text(
-                "L O G O U T",
-                style: TextStyle(
-                    color: Theme.of(context).colorScheme.inversePrimary),
+              title: Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                child: Text(
+                  "L O G O U T",
+                  style: TextStyle(
+                      color: Theme.of(context).colorScheme.inversePrimary),
+                ),
               ),
               leading: Icon(
                 Icons.logout,
