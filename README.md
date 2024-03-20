@@ -15,8 +15,8 @@ This Flutter app serves as a learning platform for understanding authentication 
 
 ## Mockups
 
-![Mockup 1](/assets/1.png)
-![Mockup 2](/assets/2.png)
+![Mockup 1](/assets/1.svg)
+![Mockup 2](/assets/2.svg)
 
 ## Key Learnings
 
